@@ -9,35 +9,23 @@ export default function Navbar() {
 
   const navList = [
     {
-      name: "Games",
+      name: "Destaques",
       link: "/",
     },
     {
-      name: "Tecnologia",
+      name: "Notícias",
       link: "/",
     },
     {
-      name: "Música",
+      name: "Resenhas",
       link: "/",
     },
     {
-      name: "Series",
+      name: "Enquetes",
       link: "/",
     },
     {
-      name: "Filmes",
-      link: "/",
-    },
-    {
-      name: "Animes",
-      link: "/",
-    },
-    {
-      name: "HQs",
-      link: "/",
-    },
-    {
-      name: "Mangás",
+      name: "Discussões",
       link: "/",
     },
   ];
