@@ -1,5 +1,12 @@
-import MainPostCard from "@/components/MainPostCard";
 import bannerPath from "/assets/joker.jpg";
+import bannerTest2 from "/assets/tesla.jpg";
+import bannerTest3 from "/assets/bills.jpg";
+import bannerTest4 from "/assets/tol-trials.jpg";
+import bannerTest5 from "/assets/Dro.jpg";
+import bannerTest6 from "assets/Oppenheimer.jpg";
+import MainPostCard from "@/components/MainPostCard";
+import TopPostCard from "@/components/TopPostsCard";
+
 
 export default function Home() {
   const today = new Date();
@@ -11,7 +18,7 @@ export default function Home() {
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between relative top-0 border-black-2">
+    <main className="flex min-h-screen max-w-[100vw] flex-col items-center justify-between relative top-0 border-black-2">
       <MainPostCard
         category="Tecnologia"
         author="Vini Dias"
@@ -21,6 +28,57 @@ export default function Home() {
         subtitle={subtitle}
         post={post}
       />
+      <section className="flex w-[100%] px-[6em] 2xl:px-[12em] pb-[6em] border-t border-blue-300">
+        <div className="flex flex-col w-[60%] pt-[3em] border-r border-blue-300 gap-20">
+          <h2 className="text-2xl font-bold">Notícias Recentes</h2>
+          <TopPostCard
+            category="Games"
+            author="Vini Dias"
+            createdAt={today}
+            bannerUrl={bannerTest4}
+            title={"Prepare o croção para o lançamento de The Outlast Trials."}
+            subtitle={subtitle}
+            post={post}
+          />
+          <TopPostCard
+            category="Animes"
+            author="Lari B."
+            createdAt={today}
+            bannerUrl={bannerTest3}
+            title={"Os personagens mais temidos pro Freeza segundo o próprio mestre Akira."}
+            subtitle={subtitle}
+            post={post}
+          />
+          <TopPostCard
+            category="Música"
+            author="Dro"
+            createdAt={today}
+            bannerUrl={bannerTest5}
+            title={"Dro fala sobre carreira e projetos em conversa com A Pista Jornal."}
+            subtitle={subtitle}
+            post={post}
+          />
+          <TopPostCard
+            category="Tecnologia"
+            author="Vini Dias"
+            createdAt={today}
+            bannerUrl={bannerTest2}
+            title={"Robôs humanoides de Tesla, seria o incício do Fim?!"}
+            subtitle={subtitle}
+            post={post}
+          />
+
+          <TopPostCard
+            category="Cinema"
+            author="Rui Curaj"
+            createdAt={today}
+            bannerUrl={bannerTest6}
+            title={"Lista completa de indicados e ganhadores do Oscar 2024"}
+            subtitle={subtitle}
+            post={post}
+          />
+        </div>
+      </section>
     </main>
   );
 }
