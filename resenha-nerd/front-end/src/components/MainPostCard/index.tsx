@@ -33,9 +33,9 @@ export default function MainPostCard(props: IProps) {
       <Image
         src={bannerUrl}
         alt="banner"
-        className="w-[100vw] h-[100vh] absolute top-0 left-0 mt-[-4.2em] z-0 opacity-[.7] object-cover"
+        className="w-[100vw] h-[100vh] absolute top-0 left-0 mt-[-4.2em] z-0 opacity-[.9] object-cover"
       />
-      <div className="flex flex-col relative opacity-1 p-[6em] px-12 gap-4 border-2 border-blue-300 md:h-[60vh] md:w-[55vw] w-[90%]  backdrop-blur-md">
+      <div className="flex flex-col relative opacity-1 p-[6em] px-12 gap-4 border-2 border-blue-300 rounded-md md:h-[60vh] md:w-[55vw] w-[90%]  backdrop-blur-md">
         <Link
           href={"/"}
           className="text-sm text-blue-200 hover:border-b-[1px] w-fit absolute top-0 mt-6"
