@@ -6,6 +6,7 @@ import bannerTest5 from "/assets/Dro.jpg";
 import bannerTest6 from "assets/Oppenheimer.jpg";
 import MainPostCard from "@/components/MainPostCard";
 import TopPostCard from "@/components/TopPostsCard";
+import TopReviewCard from "@/components/TopReviewCard";
 
 
 export default function Home() {
@@ -29,7 +30,7 @@ export default function Home() {
         post={post}
       />
       <section className="flex flex-col md:flex-row w-[100%] px-2 md:px-[6em] 2xl:px-[12em] pb-[6em] border-t border-blue-300">
-        <div className="flex flex-col w-[100%] md:w-[60%] pt-[3em] pr-2 md:pr-8  md:border-r border-blue-300 gap-20">
+        <div className="flex flex-col w-[100%] md:w-[60%] pt-[3em] pr-2 md:pr-8 gap-20">
           <h2 className="text-2xl font-bold">📰 Notícias Recentes</h2>
           <TopPostCard
             category="Games"
@@ -78,8 +79,48 @@ export default function Home() {
             post={post}
           />
         </div>
-        <div className="flex flex-col w-[40%] pt-[3em] px-8 gap-20">
+        <div className="flex flex-col w-[100%] md:w-[40%] pt-[3em] pl-8 md:border-l border-blue-300 gap-24">
           <h2 className="text-2xl font-bold font-orbitron">✏️ Resenhas em Destaque</h2>
+          <TopReviewCard 
+          author="Vinni Dias"
+          category="Games"
+          title="GTA 6 no site da Rockstar"
+          subtitle="Finalmente GTA 6  no site, vamos discutir sobre a relevância e como a Rockstar está lidando com GTA após primeiro anúncio"
+          createdAt={today}
+          relevance="90%"
+          />
+          <TopReviewCard 
+          author="Vinni Dias"
+          category="Games"
+          title="GTA 6 no site da Rockstar"
+          subtitle="Finalmente GTA 6  no site, vamos discutir sobre a relevância e como a Rockstar está lidando com GTA após primeiro anúncio"
+          createdAt={today}
+          relevance="90%"
+          />
+          <TopReviewCard 
+          author="Vinni Dias"
+          category="Games"
+          title="GTA 6 no site da Rockstar"
+          subtitle="Finalmente GTA 6  no site, vamos discutir sobre a relevância e como a Rockstar está lidando com GTA após primeiro anúncio"
+          createdAt={today}
+          relevance="90%"
+          />
+          <TopReviewCard 
+          author="Vinni Dias"
+          category="Games"
+          title="GTA 6 no site da Rockstar"
+          subtitle="Finalmente GTA 6  no site, vamos discutir sobre a relevância e como a Rockstar está lidando com GTA após primeiro anúncio"
+          createdAt={today}
+          relevance="90%"
+          />
+          <TopReviewCard 
+          author="Vinni Dias"
+          category="Games"
+          title="GTA 6 no site da Rockstar"
+          subtitle="Finalmente GTA 6  no site, vamos discutir sobre a relevância e como a Rockstar está lidando com GTA após primeiro anúncio"
+          createdAt={today}
+          relevance="90%"
+          />
         </div>
       </section>
     </main>
