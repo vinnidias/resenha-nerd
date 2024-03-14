@@ -51,7 +51,7 @@ export default function Navbar() {
               key={index}
               className="text-sm ease-in-out duration-300 hover:border-b-4 hover:border-blue-400 h-[2.2em]"
             >
-              <Link href={item.link} className="text-white"> {item.name}</Link>
+              <Link href={item.link} className="text-white hover:text-blue-300"> {item.name}</Link>
             </li>
           ))}
         </ul>
