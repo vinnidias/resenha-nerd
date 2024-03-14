@@ -48,7 +48,7 @@ export default function MainPostCard(props: IProps) {
         <p className="text-white xl:w-[70%] w-full text-sm z-10">{subtitle}</p>
         {/* <p className="text-white z-10">{post}</p> */}
         <div className="flex absolute bottom-0 mb-4 gap-6 text-white text-sm">
-          <p>Resenheiro {author}</p>
+          <p>🤓 {author}</p>
           <p>{toLocaleDate}</p>
         </div>
       </div>
