@@ -29,8 +29,8 @@ export default function Home() {
         subtitle={subtitle}
         post={post}
       />
-      <section className="flex flex-col md:flex-row w-[100%] px-2 md:px-[6em] 2xl:px-[12em] pb-[6em] border-t border-blue-300">
-        <div className="flex flex-col w-[100%] md:w-[60%] pt-[3em] pr-2 md:pr-8 gap-20">
+      <section className="flex flex-col md:flex-row w-[100%] px-2 md:px-[6em] 2xl:px-[12em] border-t border-blue-300">
+        <div className="flex flex-col w-[100%] md:w-[60%] py-[3em] pr-2 md:pr-8 gap-24">
           <h2 className="text-2xl font-bold">📰 Notícias Recentes</h2>
           <TopPostCard
             category="Games"
@@ -79,7 +79,7 @@ export default function Home() {
             post={post}
           />
         </div>
-        <div className="flex flex-col w-[100%] md:w-[40%] pt-[3em] pl-8 md:border-l border-blue-300 gap-24">
+        <div className="flex flex-col w-[100%] md:w-[40%] py-[3em] pl-8 md:border-l border-blue-300 gap-24">
           <h2 className="text-2xl font-bold font-orbitron">✏️ Resenhas em Destaque</h2>
           <TopReviewCard 
           author="Vinni Dias"
