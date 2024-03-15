@@ -80,7 +80,7 @@ export default function Home() {
           />
         </div>
         <div className="flex flex-col w-[100%] md:w-[40%] py-[3em] pl-8 md:border-l border-blue-300 gap-24">
-          <h2 className="text-2xl font-bold font-orbitron">✏️ Resenhas em Destaque</h2>
+          <h2 className="text-2xl font-bold">✏️ Resenhas em Destaque</h2>
           <TopReviewCard 
           author="Vinni Dias"
           category="Games"
