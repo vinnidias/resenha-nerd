@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
+import { RiSearch2Line } from "react-icons/ri";
 import { useState } from "react";
 
 export default function Navbar() {
