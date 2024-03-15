@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="ptbr">
       <body className={inter.className}>
-        <main>
+        <main className="min-h-full h-fit w-full relative">
           <Navbar />
           {children}
           <Footer />
