@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
-import { RiSearch2Line } from "react-icons/ri";
 import { useState } from "react";
 
 export default function Navbar() {
@@ -14,7 +13,7 @@ export default function Navbar() {
     },
     {
       name: "Notícias",
-      link: "/",
+      link: "/noticias",
     },
     {
       name: "Resenhas",
@@ -45,7 +44,7 @@ export default function Navbar() {
         </p> */}
       </div>
       <div className="hidden md:flex justify-center items-center gap-2 border-t-[1px] border-t-blue-300 mt-2 pt-2">
-        <ul className=" list-none flex gap-10">
+        <ul className="list-none flex gap-10">
           {navList.map((item, index) => (
             <li
               key={index}
