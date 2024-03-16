@@ -4,27 +4,27 @@ export default function NewsNavbar() {
   const categorys = [
     {
       name: "Games",
-      link: "/",
+      link: "/noticias",
     },
     {
       name: "Tecnologia",
-      link: "/",
+      link: "/noticias",
     },
     {
       name: "Música",
-      link: "/",
+      link: "/noticias",
     },
     {
       name: "Series",
-      link: "/",
+      link: "/noticias",
     },
     {
       name: "Cinema",
-      link: "/",
+      link: "/noticias",
     },
     {
       name: "Animes",
-      link: "/",
+      link: "/noticias",
     },
   ];
 
