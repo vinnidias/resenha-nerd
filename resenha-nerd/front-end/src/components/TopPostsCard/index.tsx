@@ -1,7 +1,9 @@
 import Image, { StaticImageData } from "next/image";
+import Link from "next/link";
 
 interface IProps {
-  bannerUrl: StaticImageData;
+  id: string;
+  bannerUrl: string | StaticImageData;
   category: string;
   author: string;
   createdAt: Date;
@@ -10,29 +12,40 @@ interface IProps {
   post: string;
 }
 
-export default function TopPostCard(props: IProps) {
-  const { bannerUrl, category, author, createdAt, title, subtitle, post } =
+export default function TopPostsCard(props: IProps) {
+  const { id, bannerUrl, category, author, createdAt, title, subtitle, post } =
     props;
-  const date = new Intl.DateTimeFormat("pt-br", {
+
+  const formatedDate = new Intl.DateTimeFormat("pt-br", {
     day: "numeric",
     month: "long",
     year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
   });
+
+  const dbDate = new Date(createdAt);
+
   return (
-    <div className="flex flex-row w-[100%] md:w-400 h-100 gap-4 p-2 items-center">
+    <Link
+      href={`/noticia/${id}`}
+      className="flex flex-row w-[100%] md:w-400 h-100 gap-4 p-2 items-center"
+    >
       <Image
-        src={bannerUrl}
+        src={`data:image/jpeg;base64,${bannerUrl}`}
         alt="banner"
-        className="w-[215px] h-[120px] aspect-auto rounded-md"
+        width={215}
+        height={120}
+        className="aspect-auto rounded-md"
       />
       <div className="flex flex-col gap-1 md:gap-4 w-[70%] max-w-[80%]">
         <p className="font-bold text-blue-400 text-sm">{category}</p>
         <p className="font-semibold 2xl:text-xl md:text-lg text-sm">{title}</p>
         <div className="flex justify-between md:pr-4 border-t border-blue-300 pt-1">
           <p className="text-xs md:text-sm">🤓 {author} </p>
-          <p className="text-xs md:text-sm">{date.format(createdAt)}</p>
+          <p className="text-xs md:text-sm">{formatedDate.format(dbDate)}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
