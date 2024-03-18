@@ -32,7 +32,7 @@ export default function Navbar() {
 
   console.log(menuIsVisible);
   return (
-    <nav className="flex-col justify-between sticky top-0 h-[3em] md:h-[5em] min-h-fit shadow-md max-w-screen p-2 md:px-[15em] backdrop-blur-md z-10">
+    <nav className="flex-col justify-between sticky top-0 h-[3em] md:h-[5em] min-h-fit shadow-md max-w-screen p-2 md:px-[15em] backdrop-blur-md bg-slate-700/20 z-10">
       <div className="flex justify-between items-center ">
         <div className="flex items-center gap-2">
           <MobileMenu onClick={() => setMenuIsVisible(!menuIsVisible)} />
