@@ -29,7 +29,7 @@ export default function TopPostsCard(props: IProps) {
   return (
     <Link
       href={`/noticia/${id}`}
-      className="flex flex-row w-[100%] md:w-400 h-100 gap-4 p-2 items-center"
+      className="flex flex-row w-[100%] md:w-400 h-100 gap-4 p-2 items-center ease-in-out duration-300 hover:border-b-4 hover:border-blue-300 hover:shadow-lg"
     >
       <Image
         src={`data:image/jpeg;base64,${bannerUrl}`}
