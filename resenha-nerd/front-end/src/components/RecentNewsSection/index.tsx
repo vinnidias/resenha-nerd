@@ -1,6 +1,7 @@
 import { reviewsList } from "@/mockDatas/reviewsData";
 import TopPostsCard from "../TopPostsCard";
 import TopReviewCard from "../TopReviewCard";
+import { api } from "@/api/api";
 
 interface NewsProps {
   id: string;
@@ -15,10 +16,8 @@ interface NewsProps {
 }
 
 export default async function RecentNewsSection() {
-  const res = await fetch("http://localhost:3333/news",{ cache: 'no-store' });
+  const res = await fetch(`${api}/news`, { cache: "no-store" });
   const newsList: NewsProps[] = await res.json();
-
-  console.log("lista de noticias: ", newsList)
 
   return (
     <section className="flex flex-col md:flex-row w-[100%] px-2 md:px-[6em] 2xl:px-[12em] border-t border-blue-300">
