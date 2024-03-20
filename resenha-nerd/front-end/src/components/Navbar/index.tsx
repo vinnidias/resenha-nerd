@@ -31,7 +31,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="flex-col justify-between sticky top-0 h-[3em] md:h-[5em] min-h-fit shadow-md max-w-screen p-2 md:px-[15em] backdrop-blur-md bg-slate-700/20 z-10">
+    <nav className="flex-col justify-between sticky top-0 h-[3em] md:h-[5em] min-h-fit shadow-md max-w-screen p-2 md:px-[15em] backdrop-blur-md bg-slate-700/30 z-10">
       <div className="flex justify-between items-center ">
         <div className="flex items-center gap-2">
           <MobileMenu onClick={() => setMenuIsVisible(!menuIsVisible)} />
@@ -56,8 +56,8 @@ export default function Navbar() {
         </ul>
       </div>
       {menuIsVisible && (
-        <div className="flex md:hidden mt-5 ml-[-1%]">
-          <ul className="list-none flex flex-col gap-2 backdrop-blur-lg shadow-md px-5">
+        <div className="flex md:hidden mt-[1.1rem] ml-[-1%] z-20">
+          <ul className="list-none flex flex-col gap-2 backdrop-blur-lg shadow-md px-5 bg-slate-700/20 z-10">
             {navList.map((item, index) => (
               <li
                 key={index}
