@@ -1,8 +1,23 @@
+import { api } from "@/api/api";
 import NewsNavbar from "@/components/NewsNavbar";
 import TopPostCard from "@/components/TopPostsCard";
-import { newsList } from "@/mockDatas/newsData";
 
-export default function News() {
+interface NewsProps {
+  id: string;
+  author: string;
+  title: string;
+  subtitle: string;
+  category: string;
+  content: string;
+  image?: string;
+  created_at: Date;
+  updated_at?: Date;
+}
+
+export default async function News() {
+  const res = await fetch(`${api}/news`, { cache: "no-store" });
+  const newsList: NewsProps[] = await res.json();
+
   return (
     <div className="flex flex-col mt-[-8.46rem] pt-[3.5em] min-h-[80vh]">
       <NewsNavbar />
@@ -11,13 +26,14 @@ export default function News() {
         <h2 className="text-2xl font-bold">TODAS AS NOTÍCIAS EM UM SÓ LUGAR</h2>
         {newsList.map((item, index) => (
           <TopPostCard
+            id={item.id}
             category={item.category}
             author={item.author}
-            createdAt={item.cratedAt}
-            bannerUrl={item.bannerUrl}
+            createdAt={item.created_at}
+            bannerUrl={item.image || ""}
             title={item.title}
             subtitle={item.subtitle}
-            post={item.post}
+            post={item.content}
             key={index}
           />
         ))}
