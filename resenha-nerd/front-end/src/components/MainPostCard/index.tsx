@@ -24,6 +24,8 @@ export default function MainPostCard(props: IProps) {
   const { newsList } = props;
   const [selected, setSelected] = useState(0);
 
+  const listSliced = newsList.slice(0,4);
+
   const formatedDate = new Intl.DateTimeFormat("pt-br", {
     day: "numeric",
     month: "long",
@@ -35,7 +37,7 @@ export default function MainPostCard(props: IProps) {
   return (
     <section className="flex flex-col w-[100%] h-screen top-0 gap-40 items-center pt-[6em] overflow-hidden">
       <Image
-        src={`data:image/jpeg;base64,${newsList[selected].image}` || ""}
+        src={`data:image/jpeg;base64,${listSliced[selected].image}` || ""}
         alt="banner"
         className="w-[100vw] h-[100vh] absolute top-0 left-0 mt-[-4.8em] z-0 opacity-[.9] object-cover"
         width={200}
@@ -43,22 +45,22 @@ export default function MainPostCard(props: IProps) {
       />
       <div className="flex flex-col mt-24  w-[70%] p-[6em] px-12 gap-4 relative bg-gradient-to-tr from-black/70 to-blue-300/5 md:m-0 md:h-[60vh] md:w-[55vw] border-2 border-blue-300 rounded-md backdrop-blur-md ease-in-out duration-700">
         <Link
-          href={`/noticia/${newsList[selected].id}`}
+          href={`/noticia/${listSliced[selected].id}`}
           className=" hover:decoration-slice hover:decoration-blue-300"
         >
           <p className="text-md text-blue-200 font-bold ease-in-out duration-300 hover:border-b hover:border-blue-300 w-fit absolute top-0 mt-6">
-            {newsList[selected].category}
+            {listSliced[selected].category}
           </p>
           <p className="text-white text-2xl 2xl:text-5xl font-bold md:w-[70%] w-[90%] mb-12">
-            {newsList[selected].title}
+            {listSliced[selected].title}
           </p>
           <p className="text-white xl:w-[70%] w-full text-md lg:text-lg">
-            {newsList[selected].subtitle}
+            {listSliced[selected].subtitle}
           </p>
           <div className="flex absolute bottom-0 mb-4 gap-6 text-white text-sm">
-            <p>🤓 {newsList[selected].author}</p>
+            <p>🤓 {listSliced[selected].author}</p>
             <p>
-              {formatedDate.format(new Date(newsList[selected].created_at))}
+              {formatedDate.format(new Date(listSliced[selected].created_at))}
             </p>
           </div>
         </Link>
@@ -67,7 +69,7 @@ export default function MainPostCard(props: IProps) {
             className="text-2xl font-bold text-blue-300"
             onClick={() => {
               if (selected <= 0) {
-                setSelected(newsList.length - 1);
+                setSelected(listSliced.length - 1);
               } else {
                 setSelected(selected - 1);
               }
@@ -89,7 +91,7 @@ export default function MainPostCard(props: IProps) {
           <button
             className="text-2xl font-bold text-blue-300"
             onClick={() => {
-              if (selected === newsList.length - 1) {
+              if (selected === listSliced.length - 1) {
                 setSelected(0);
               } else {
                 setSelected(selected + 1);
