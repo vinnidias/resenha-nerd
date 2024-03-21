@@ -14,7 +14,7 @@ interface NewsProps {
   updated_at?: Date;
 }
 
-export default async function News() {
+export default async function Noticias() {
   const res = await fetch(`${api}/news`, { cache: "no-store" });
   const newsList: NewsProps[] = await res.json();
 
