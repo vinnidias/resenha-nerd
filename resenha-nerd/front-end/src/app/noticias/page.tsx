@@ -1,5 +1,5 @@
 import { api } from "@/api/api";
-import NewsNavbar from "@/components/NewsNavbar";
+import CategorysNavbar from "@/components/CategorysNavbar";
 import TopPostCard from "@/components/TopPostsCard";
 
 interface NewsProps {
@@ -20,7 +20,7 @@ export default async function Noticias() {
 
   return (
     <div className="flex flex-col mt-[-8.46rem] pt-[3.5em] min-h-[80vh]">
-      <NewsNavbar />
+      <CategorysNavbar pageTitle={"📰 Notícias"}/>
 
       <div className="flex flex-col md:w-[70%] gap-20 py-12 2xl:pl-72 px-8 md:border-r border-blue-300">
         <h2 className="text-2xl font-bold">TODAS AS NOTÍCIAS EM UM SÓ LUGAR</h2>
