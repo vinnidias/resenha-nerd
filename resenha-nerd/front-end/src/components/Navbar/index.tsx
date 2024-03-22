@@ -18,7 +18,7 @@ export default function Navbar() {
     },
     {
       name: "Resenhas",
-      link: "/",
+      link: "/resenhas",
     },
     {
       name: "Enquetes",
