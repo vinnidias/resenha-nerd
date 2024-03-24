@@ -9,7 +9,7 @@ import { IoMdArrowRoundForward, IoMdArrowRoundBack } from "react-icons/io";
 interface IProps {
   newsList: {
     id: string;
-    author: string;
+    authorId: string;
     title: string;
     subtitle: string;
     category: string;
@@ -58,7 +58,7 @@ export default function MainPostCard(props: IProps) {
             {listSliced[selected].subtitle}
           </p>
           <div className="flex absolute bottom-0 mb-4 gap-6 text-white text-sm">
-            <p>🤓 {listSliced[selected].author}</p>
+            <p>🤓 {listSliced[selected].authorId}</p>
             <p>
               {formatedDate.format(new Date(listSliced[selected].created_at))}
             </p>
