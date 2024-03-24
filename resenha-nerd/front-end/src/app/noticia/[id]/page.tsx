@@ -10,7 +10,11 @@ interface IParams {
 }
 interface IResponseData {
   id: string;
-  author: string;
+  authorId: string;
+  author: {
+    nickname: string;
+    image?: string;
+  };
   title: string;
   subtitle: string;
   category: string;
@@ -37,7 +41,8 @@ export default async function Noticia({ params }: IParams) {
   const category = data.category;
   const endText = data.end_text;
   const link = data.link;
-  const author = data.author;
+  const author = data.authorId;
+  const authorImage = data.author.image;
   const imageCredits = data.image_credits;
   const formatedDate = new Intl.DateTimeFormat("pt-br", {
     day: "numeric",
@@ -49,7 +54,6 @@ export default async function Noticia({ params }: IParams) {
 
   const date = formatedDate.format(new Date(data.created_at));
 
-  console.log(link);
   return (
     <div className="flex flex-col min-w-screen min-h-screen">
       <div className="flex flex-col justify-start 2xl:gap-8 mt-24 h-screen md:mt-4 gap-2">
@@ -67,11 +71,25 @@ export default async function Noticia({ params }: IParams) {
           <h1 className="text-2xl lg:text-xl lg:mt-[-0.15em] 2xl:text-3xl font-bold mb-8 mt-8 text-center md:text-start">
             {title}
           </h1>
-          <h2 className="text-md lg:text-lg lg:mt-[-1em] 2xl:text-xl">{subtitle}</h2>
+          <h2 className="text-md lg:text-lg lg:mt-[-1em] 2xl:text-xl">
+            {subtitle}
+          </h2>
         </div>
         <div className="flex w-full px-2 self-center justify-between items-center mt-16 lg:mt-0 lg:items-end h-20 lg:px-2 md:px-16 lg:w-[70%] lg:gap-40 border-t border-blue-300">
-          <div className="flex gap-4 w-full">
-            <p className="text-md lg:text-md lg:px-8 2xl:text-lg font-bold">🤓 {author}</p>
+          <div className="flex gap-2 w-full items-end">
+            <div className="flex h-16 w-16 justify-self-end">
+              <Image
+                src={`data:image/jpeg;base64,${authorImage}` || "" || ""}
+                alt="foto do autor"
+                width={200}
+                height={200}
+                style={{ objectFit: "cover", borderRadius: "50%" }}
+              />
+            </div>
+            <p className="text-md lg:text-md lg:px-2 2xl:text-lg font-bold">
+              {" "}
+              {author}
+            </p>
             <p className="text-md lg:text-lg font-[500]">{date}</p>
           </div>
 
