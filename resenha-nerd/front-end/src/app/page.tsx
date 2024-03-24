@@ -4,7 +4,7 @@ import { api } from "@/api/api";
 
 interface NewsProps {
   id: string;
-  author: string;
+  authorId: string;
   title: string;
   subtitle: string;
   category: string;
@@ -20,9 +20,12 @@ export default async function Home() {
 
   if (!res.ok) {
     return (
-      <h1>
-        Erro 404, estamos com problema para estabelecer a conexão com o servidor
-      </h1>
+      <div className=" flex justify-center items-center w-screen h-screen">
+        <h1>
+          Erro 404, estamos com problema para estabelecer a conexão com o
+          servidor
+        </h1>
+      </div>
     );
   }
 
