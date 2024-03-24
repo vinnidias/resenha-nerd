@@ -25,7 +25,7 @@ export default function TopReviewCard(props: IProps) {
       <p>{subtitle}</p>
       <div className="flex justify-between md:pr-4 border-t border-blue-300 pt-1">
         <p className="text-xs md:text-sm">🤓 {author} </p>
-        <p className="text-xs md:text-sm">{date.format(createdAt)}</p>
+        <p className="text-xs md:text-sm">{date.format(new Date(createdAt))}</p>
       </div>
     </div>
   );
