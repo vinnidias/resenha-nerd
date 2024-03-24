@@ -1,11 +1,10 @@
-import { reviewsList } from "@/mockDatas/reviewsData";
 import TopPostsCard from "../TopPostsCard";
 import TopReviewCard from "../TopReviewCard";
 import { api } from "@/api/api";
 
 interface NewsProps {
   id: string;
-  author: string;
+  authorId: string;
   title: string;
   subtitle: string;
   category: string;
@@ -15,8 +14,20 @@ interface NewsProps {
   updated_at?: Date;
 }
 
+interface ReviewsProps {
+  id: string;
+  authorId: string;
+  category: string;
+  title: string;
+  subtitle: string;
+  content: string;
+  created_at: Date;
+}
+
 export default async function RecentNewsSection() {
   const res = await fetch(`${api}/news`, { cache: "no-store" });
+  const reviewsRes = await fetch(`${api}/reviews`, { cache: "no-store" });
+  const reviewsList: ReviewsProps[] = await reviewsRes.json();
   const newsList: NewsProps[] = await res.json();
 
   return (
@@ -27,7 +38,7 @@ export default async function RecentNewsSection() {
           <TopPostsCard
             id={item.id}
             category={item.category}
-            author={item.author}
+            author={item.authorId}
             createdAt={item.created_at}
             bannerUrl={item.image || ""}
             title={item.title}
@@ -42,12 +53,12 @@ export default async function RecentNewsSection() {
 
         {reviewsList.map((item, index) => (
           <TopReviewCard
-            author={item.author}
+            author={item.authorId}
             category={item.category}
             title={item.title}
             subtitle={item.subtitle}
-            createdAt={item.createdAt}
-            relevance={item.relevance}
+            createdAt={item.created_at}
+            relevance={"90"}
             key={index}
           />
         ))}
