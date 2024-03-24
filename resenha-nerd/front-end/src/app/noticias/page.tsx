@@ -4,7 +4,7 @@ import TopPostCard from "@/components/TopPostsCard";
 
 interface NewsProps {
   id: string;
-  author: string;
+  authorId: string;
   title: string;
   subtitle: string;
   category: string;
@@ -28,7 +28,7 @@ export default async function Noticias() {
           <TopPostCard
             id={item.id}
             category={item.category}
-            author={item.author}
+            author={item.authorId}
             createdAt={item.created_at}
             bannerUrl={item.image || ""}
             title={item.title}
