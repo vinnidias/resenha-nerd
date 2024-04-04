@@ -53,6 +53,7 @@ export default async function RecentNewsSection() {
 
         {reviewsList.map((item, index) => (
           <TopReviewCard
+            id={item.id}
             author={item.authorId}
             category={item.category}
             title={item.title}
