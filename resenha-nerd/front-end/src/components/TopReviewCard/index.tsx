@@ -1,4 +1,7 @@
+import Link from "next/link";
+
 interface IProps {
+  id: string;
   category: string;
   title: string;
   subtitle: string;
@@ -8,14 +11,17 @@ interface IProps {
 }
 
 export default function TopReviewCard(props: IProps) {
-  const { category, title, subtitle, author, relevance, createdAt } = props;
+  const { id, category, title, subtitle, author, relevance, createdAt } = props;
   const date = new Intl.DateTimeFormat("pt-br", {
     day: "numeric",
     month: "long",
     year: "numeric",
   });
   return (
-    <div className="flex flex-col w-[100%] p-2 gap-4 ">
+    <Link
+      href={`/resenha/${id}`}
+      className="flex flex-col w-[100%] p-2 gap-4 ease-in-out duration-300 hover:border-b-4 hover:border-blue-300 hover:shadow-lg"
+    >
       <div className="flex justify-between pr-6">
         <p className="font-bold text-blue-400 text-sm">{category}</p>
         <p>🔥 {relevance} Relevante</p>
@@ -27,6 +33,6 @@ export default function TopReviewCard(props: IProps) {
         <p className="text-xs md:text-sm">🤓 {author} </p>
         <p className="text-xs md:text-sm">{date.format(new Date(createdAt))}</p>
       </div>
-    </div>
+    </Link>
   );
 }
