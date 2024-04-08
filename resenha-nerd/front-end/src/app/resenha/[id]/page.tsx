@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FaGithub, FaInstagram } from "react-icons/fa6";
+import { FaGithub, FaInstagram, FaTwitch } from "react-icons/fa6";
 
 interface IParams {
   params: { id: string };
@@ -17,6 +17,11 @@ interface IResponseData {
   author: {
     nickname: string;
     image: string;
+    github_link: string | null;
+    intagram_link: string | null;
+    reddit_link: string | null;
+    twitch_link: string | null;
+    twitter_link: string | null;
   };
 }
 export default async function Resenha({ params }: IParams) {
@@ -35,6 +40,9 @@ export default async function Resenha({ params }: IParams) {
   const createdAt = data.created_at;
   const authotId = data.authorId;
   const authorImage = data.author.image;
+  const authorInsta = data.author.intagram_link;
+  const authorGithub = data.author.github_link;
+  const authorTwitch = data.author.twitch_link;
 
   const formatedDate = new Intl.DateTimeFormat("pt-br", {
     day: "numeric",
@@ -77,26 +85,43 @@ export default async function Resenha({ params }: IParams) {
           <p className="text-md lg:text-lg font-[500]">{date}</p>
         </div>
         <div className="flex gap-6 pb-1 lg:pr-8 2xl:pr-40 items-center">
-          <a
-            target="blank"
-            href={"https://www.instagram.com/vinni.diass/"}
-            className="text-3xl text-center text-blue-400"
-          >
-            {" "}
-            <FaInstagram />
-          </a>
-          <a
-            target="blank"
-            href={"https://github.com/vinnidias"}
-            className="text-3xl text-center text-blue-400 "
-          >
-            {" "}
-            <FaGithub />
-          </a>
+          {authorInsta && (
+            <a
+              target="blank"
+              href={authorInsta}
+              className="text-3xl text-center text-blue-400"
+            >
+              {" "}
+              <FaInstagram />
+            </a>
+          )}
+          {authorGithub && (
+            <a
+              target="blank"
+              href={authorGithub}
+              className="text-3xl text-center text-blue-400 "
+            >
+              {" "}
+              <FaGithub />
+            </a>
+          )}
+
+          {authorTwitch && (
+            <a
+              target="blank"
+              href={authorTwitch}
+              className="text-3xl text-center text-blue-400 "
+            >
+              {" "}
+              <FaTwitch />
+            </a>
+          )}
         </div>
       </div>
       <div className="flex flex-col gap-20 pb-24 px-4 w-[full] lg:w-[50%] lg:ml-[15%] py-8 lg:pl-2 lg:pr-4 2xl:pl-12 lg:border-r lg:border-blue-300">
-        <p className="text-md lg:text-lg lg:mt-[-1em] 2xl:text-xl tracking-wide leading-9">{content}</p>
+        <p className="text-md lg:text-lg lg:mt-[-1em] 2xl:text-xl tracking-wide leading-9">
+          {content}
+        </p>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { FaInstagram, FaGithub } from "react-icons/fa6";
+import { FaInstagram, FaGithub, FaTwitch } from "react-icons/fa6";
 
 import Iframe from "@/components/Iframe";
 
@@ -14,6 +14,11 @@ interface IResponseData {
   author: {
     nickname: string;
     image?: string;
+    github_link: string | null;
+    intagram_link: string | null;
+    reddit_link: string | null;
+    twitch_link: string | null;
+    twitter_link: string | null;
   };
   title: string;
   subtitle: string;
@@ -43,6 +48,9 @@ export default async function Noticia({ params }: IParams) {
   const link = data.link;
   const author = data.authorId;
   const authorImage = data.author.image;
+  const authorInsta = data.author.intagram_link;
+  const authorGithub = data.author.github_link;
+  const authorTwitch = data.author.twitch_link;
   const imageCredits = data.image_credits;
   const formatedDate = new Intl.DateTimeFormat("pt-br", {
     day: "numeric",
@@ -92,24 +100,38 @@ export default async function Noticia({ params }: IParams) {
             </p>
             <p className="text-md lg:text-lg font-[500]">{date}</p>
           </div>
-
           <div className="flex gap-6 pb-1 lg:pr-8 2xl:pr-40 items-center">
-            <a
-              target="blank"
-              href={"https://www.instagram.com/vinni.diass/"}
-              className="text-3xl text-center text-blue-400"
-            >
-              {" "}
-              <FaInstagram />
-            </a>
-            <a
-              target="blank"
-              href={"https://github.com/vinnidias"}
-              className="text-3xl text-center text-blue-400 "
-            >
-              {" "}
-              <FaGithub />
-            </a>
+            {authorInsta && (
+              <a
+                target="blank"
+                href={authorInsta}
+                className="text-3xl text-center text-blue-400"
+              >
+                {" "}
+                <FaInstagram />
+              </a>
+            )}
+            {authorGithub && (
+              <a
+                target="blank"
+                href={authorGithub}
+                className="text-3xl text-center text-blue-400 "
+              >
+                {" "}
+                <FaGithub />
+              </a>
+            )}
+
+            {authorTwitch && (
+              <a
+                target="blank"
+                href={authorTwitch}
+                className="text-3xl text-center text-blue-400 "
+              >
+                {" "}
+                <FaTwitch />
+              </a>
+            )}
           </div>
         </div>
       </div>
