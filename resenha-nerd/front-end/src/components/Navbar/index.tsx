@@ -14,11 +14,11 @@ export default function Navbar() {
     },
     {
       name: "Notícias",
-      link: "/",
+      link: "/noticias",
     },
     {
       name: "Resenhas",
-      link: "/",
+      link: "/resenhas",
     },
     {
       name: "Enquetes",
@@ -30,9 +30,8 @@ export default function Navbar() {
     },
   ];
 
-  console.log(menuIsVisible);
   return (
-    <nav className="flex-col justify-between sticky top-0 h-[3em] md:h-[5em] min-h-fit shadow-md max-w-screen p-2 md:px-[15em] backdrop-blur-md z-10">
+    <nav className="flex-col justify-between sticky top-0 h-[3em] md:h-[5em] min-h-fit shadow-md max-w-screen p-2 md:px-[15em] backdrop-blur-md bg-slate-700/30 z-10">
       <div className="flex justify-between items-center ">
         <div className="flex items-center gap-2">
           <MobileMenu onClick={() => setMenuIsVisible(!menuIsVisible)} />
@@ -45,20 +44,20 @@ export default function Navbar() {
         </p> */}
       </div>
       <div className="hidden md:flex justify-center items-center gap-2 border-t-[1px] border-t-blue-300 mt-2 pt-2">
-        <ul className=" list-none flex gap-10">
+        <ul className="list-none flex gap-10">
           {navList.map((item, index) => (
             <li
               key={index}
               className="text-sm ease-in-out duration-300 hover:border-b-4 hover:border-blue-400 h-[2.2em]"
             >
-              <Link href={item.link} className="text-white"> {item.name}</Link>
+              <Link href={item.link} className="text-white hover:text-blue-300"> {item.name}</Link>
             </li>
           ))}
         </ul>
       </div>
       {menuIsVisible && (
-        <div className="flex md:hidden mt-5 ml-[-1%]">
-          <ul className="list-none flex flex-col gap-2 backdrop-blur-lg shadow-md px-5">
+        <div className="flex md:hidden mt-[1.1rem] ml-[-1%] z-20">
+          <ul className="list-none flex flex-col gap-2 backdrop-blur-lg shadow-md px-5 bg-slate-700/20 z-10">
             {navList.map((item, index) => (
               <li
                 key={index}
