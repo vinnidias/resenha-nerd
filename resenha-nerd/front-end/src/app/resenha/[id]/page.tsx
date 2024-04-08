@@ -1,3 +1,4 @@
+import { api } from "@/api/api";
 import Image from "next/image";
 import { FaGithub, FaInstagram, FaTwitch } from "react-icons/fa6";
 
@@ -27,7 +28,7 @@ interface IResponseData {
 export default async function Resenha({ params }: IParams) {
   const { id } = params;
 
-  const res = await fetch(`http://localhost:3333/reviewbyid?id=${id}`, {
+  const res = await fetch(`${api}/reviewbyid?id=${id}`, {
     cache: "no-store",
   });
 
