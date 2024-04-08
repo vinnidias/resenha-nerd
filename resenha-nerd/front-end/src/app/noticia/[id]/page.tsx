@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FaInstagram, FaGithub, FaTwitch } from "react-icons/fa6";
 
 import Iframe from "@/components/Iframe";
+import { api } from "@/api/api";
 
 interface IParams {
   params: { id: string };
@@ -34,7 +35,7 @@ interface IResponseData {
 
 export default async function Noticia({ params }: IParams) {
   const { id } = params;
-  const res = await fetch(`http://localhost:3333/newsbyid?id=${id}`, {
+  const res = await fetch(`${api}/newsbyid?id=${id}`, {
     cache: "no-store",
   });
   const data: IResponseData = await res.json();
