@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FaInstagram, FaGithub, FaTwitch } from "react-icons/fa6";
 
 import Iframe from "@/components/Iframe";
+import ReviewsList from "@/components/ReviewsList";
 import { api } from "@/api/api";
 
 interface IParams {
@@ -38,6 +39,7 @@ export default async function Noticia({ params }: IParams) {
   const res = await fetch(`${api}/newsbyid?id=${id}`, {
     cache: "no-store",
   });
+
   const data: IResponseData = await res.json();
 
   const title = data.title.toUpperCase();
@@ -136,14 +138,20 @@ export default async function Noticia({ params }: IParams) {
           </div>
         </div>
       </div>
-
-      <div className="flex flex-col gap-20 px-4 w-[full] lg:w-[50%] lg:ml-[15%] py-8 lg:pl-2 lg:pr-4 2xl:pl-12 lg:border-r lg:border-blue-300">
-        <p className="text-lg lg:text-xl tracking-wide leading-9">{content}</p>
-        <Iframe link={link || ""} />
-        <p className="text-lg lg:text-xl tracking-wide leading-9">{endText}</p>
+      <div className="flex flex-col lg:flex-row w-full ">
+        <div className="flex flex-col gap-20 px-4 lg:w-[50%] lg:ml-[15%] py-8 lg:pl-2 lg:pr-4 2xl:pl-12">
+          <p className="text-lg lg:text-xl tracking-wide leading-9">
+            {content}
+          </p>
+          <Iframe link={link || ""} />
+          <p className="text-lg lg:text-xl tracking-wide leading-9">
+            {endText}
+          </p>
+        </div>
+        <div className="flex lg:w-[30%] pt-[30%] pr-4 items-end lg:mr-[15%] md:border-l border-blue-300">
+          <ReviewsList />
+        </div>
       </div>
-
-      <div className="flex w-full justify-center p-8"></div>
     </div>
   );
 }

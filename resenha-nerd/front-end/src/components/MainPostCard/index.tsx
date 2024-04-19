@@ -78,7 +78,7 @@ export default function MainPostCard(props: IProps) {
             <IoMdArrowRoundBack />
           </button>
 
-          {newsList.map((_, index) => (
+          {listSliced.map((_, index) => (
             <div
               key={index}
               onClick={() => setSelected(index)}
