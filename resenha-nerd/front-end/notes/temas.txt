@@ -1,0 +1,34 @@
+const navList = [
+    {
+      name: "Games",
+      link: "/",
+    },
+    {
+      name: "Tecnologia",
+      link: "/",
+    },
+    {
+      name: "Música",
+      link: "/",
+    },
+    {
+      name: "Series",
+      link: "/",
+    },
+    {
+      name: "Cinema",
+      link: "/",
+    },
+    {
+      name: "Animes",
+      link: "/",
+    },
+    {
+      name: "HQs",
+      link: "/",
+    },
+    {
+      name: "Mangás",
+      link: "/",
+    },
+  ];
