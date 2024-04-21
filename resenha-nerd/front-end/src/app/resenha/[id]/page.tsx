@@ -29,7 +29,7 @@ export default async function Resenha({ params }: IParams) {
   const { id } = params;
 
   const res = await fetch(`${api}/reviewbyid?id=${id}`, {
-    cache: "no-store",
+    cache: "force-cache",
   });
 
   const data: IResponseData = await res.json();

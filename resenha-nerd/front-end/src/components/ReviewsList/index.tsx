@@ -12,7 +12,7 @@ interface ReviewsProps {
 }
 
 export default async function ReviewsList() {
-  const reviewsRes = await fetch(`${api}/reviews`, { cache: "no-store" });
+  const reviewsRes = await fetch(`${api}/reviews`, { cache: "force-cache" });
   const reviewsList: ReviewsProps[] = await reviewsRes.json();
   return (
     <div className="flex flex-col w-full py-[3em] pl-8 gap-24">

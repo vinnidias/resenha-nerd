@@ -2,10 +2,18 @@ import Link from "next/link";
 
 interface IProps {
   pageTitle: string;
+  handleCategoryClick: (category: string) => void;
+  hlandleClearFilter: () => void;
+  categorySelected: string;
 }
 
 export default function CategorysNavbar(props: IProps) {
-  const { pageTitle } = props;
+  const {
+    pageTitle,
+    handleCategoryClick,
+    hlandleClearFilter,
+    categorySelected,
+  } = props;
   const categorys = [
     {
       name: "Games",
@@ -20,7 +28,7 @@ export default function CategorysNavbar(props: IProps) {
       link: "/noticias",
     },
     {
-      name: "Series",
+      name: "Séries",
       link: "/noticias",
     },
     {
@@ -44,12 +52,24 @@ export default function CategorysNavbar(props: IProps) {
             key={index}
             className="text-sm pt-4 ease-in-out duration-300 hover:border-b-4 hover:border-blue-400 h-full"
           >
-            <Link href={category.link} className="text-white hover:text-white">
+            <button
+              onClick={() => handleCategoryClick(category.name)}
+              className={`hover:text-white ${
+                categorySelected === category.name
+                  ? "text-blue-300"
+                  : "text-white"
+              }`}
+            >
               {category.name}
-            </Link>
+            </button>
           </li>
         ))}
       </ul>
+      {categorySelected && (
+        <button onClick={hlandleClearFilter} className="text-white">
+          limpar filtro
+        </button>
+      )}
     </nav>
   );
 }
