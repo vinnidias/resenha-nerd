@@ -15,7 +15,7 @@ interface NewsProps {
 }
 
 export default async function Home() {
-  const res = await fetch(`${api}/news`, { cache: "no-store" });
+  const res = await fetch(`${api}/news`, { cache: "force-cache" });
   const newsFetchList: NewsProps[] = await res.json();
 
   if (!res.ok) {
