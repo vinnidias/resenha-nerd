@@ -31,7 +31,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="flex-col justify-between sticky top-0 h-[3em] md:h-[5em] min-h-fit shadow-md max-w-screen p-2 md:px-[15em] backdrop-blur-md bg-slate-700/30 z-10">
+    <nav className="flex-col justify-between sticky top-0 h-[3em] md:h-[5em] 2xl:h-[5.5em] min-h-fit shadow-md max-w-screen p-2 md:px-[15em] backdrop-blur-md bg-slate-700/30 z-10">
       <div className="flex justify-between items-center ">
         <div className="flex items-center gap-2">
           <MobileMenu onClick={() => setMenuIsVisible(!menuIsVisible)} />
@@ -48,7 +48,7 @@ export default function Navbar() {
           {navList.map((item, index) => (
             <li
               key={index}
-              className="text-sm ease-in-out duration-300 hover:border-b-4 hover:border-blue-400 h-[2.2em]"
+              className="text-sm lg:text-md 2xl:text-lg ease-in-out duration-300 hover:border-b-4 hover:border-blue-400 h-[2.2em]"
             >
               <Link href={item.link} className="text-white hover:text-blue-300"> {item.name}</Link>
             </li>
