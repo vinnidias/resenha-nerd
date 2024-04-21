@@ -36,9 +36,8 @@ interface IResponseData {
 
 export default async function Noticia({ params }: IParams) {
   const { id } = params;
-  const res = await fetch(`${api}/newsbyid?id=${id}`, {
-    cache: "no-store",
-  });
+
+  const res = await fetch(`${api}/newsbyid?id=${id}`, { cache: "force-cache" });
 
   const data: IResponseData = await res.json();
 
