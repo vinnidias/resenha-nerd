@@ -15,19 +15,8 @@ interface NewsProps {
 }
 
 export default async function Home() {
-  const res = await fetch(`${api}/news`, { cache: "force-cache" });
+  const res = await fetch(`${api}/news`, { cache: "no-store" });
   const newsFetchList: NewsProps[] = await res.json();
-
-  if (!res.ok) {
-    return (
-      <div className=" flex justify-center items-center w-screen h-screen">
-        <h1>
-          Erro 404, estamos com problema para estabelecer a conexão com o
-          servidor
-        </h1>
-      </div>
-    );
-  }
 
   return (
     <main className="flex min-h-screen max-w-[100vw] flex-col items-center justify-between relative top-0 border-black-2">

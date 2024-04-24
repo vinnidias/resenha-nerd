@@ -62,9 +62,8 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit(handleFormSubmit)}
-      className="xl:border-r flex flex-col p-16 gap-12 xl:w-[40%] w-full h-full"
+      className="border-b xl:border-r flex flex-col p-16 gap-12 w-full h-full"
     >
-      <h1 className="font-bold text-2xl">💬 Fale Conosco</h1>
       <>
         <label
           htmlFor="name"
