@@ -2,7 +2,7 @@ interface IParams {
   params: { id: string };
 }
 
-export default function Discussao({ params }: IParams) {
+export default async function Discussao({ params }: IParams) {
   const { id } = params;
 
   return (
