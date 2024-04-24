@@ -21,11 +21,11 @@ export default function Navbar() {
       link: "/resenhas",
     },
     {
-      name: "Enquetes",
-      link: "/",
+      name: "Discussões ",
+      link: "/discussoes",
     },
     {
-      name: "Discussões",
+      name: "Enquetes",
       link: "/",
     },
   ];
