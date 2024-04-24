@@ -1,7 +1,6 @@
 import { api } from "@/api/api";
-import CategorysNavbar from "@/components/CategorysNavbar";
+
 import NewsList from "@/components/NewsList";
-import TopPostCard from "@/components/TopPostsCard";
 
 interface NewsProps {
   id: string;
@@ -19,9 +18,5 @@ export default async function Noticias() {
   const res = await fetch(`${api}/news`, { cache: "force-cache" });
   const newsList: NewsProps[] = await res.json();
 
-  return (
-    <>
-      <NewsList newsList={newsList} />
-    </>
-  );
+  return <NewsList newsList={newsList} />;
 }
