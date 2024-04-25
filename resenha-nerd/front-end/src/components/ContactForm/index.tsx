@@ -41,7 +41,7 @@ export default function ContactForm() {
   const handleFormSubmit = async (data: ContactFormProps) => {
     try {
       setIsLoading(true);
-      const post = await fetch(`${api}/contact`, {
+      await fetch(`${api}/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +55,8 @@ export default function ContactForm() {
       resetField("message");
       setIsLoading(false);
     } catch (error) {
-      console.log("Deu ruim: ", error);
+      console.log("Erro ao enviar: ", error);
+      setIsLoading(false);
     }
   };
 
