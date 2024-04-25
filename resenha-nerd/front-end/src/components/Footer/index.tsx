@@ -3,7 +3,7 @@ import { FaArrowRight, FaGithub, FaInstagram, FaTwitch } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <section className="relative flex justify-between w-full h-64 bg-slate-700 pt-12 xl:px-[15%] px-2 lg?px-16">
+    <section className="relative flex justify-between w-full h-80 lg:h-64 bg-slate-700 pt-12 xl:px-[15%] px-2 lg?px-16">
       <div className="flex flex-col gap-8 w-[30%]">
         <Link
           href={"/"}
@@ -31,27 +31,27 @@ export default function Footer() {
           target="_blank"
           className="flex items-center gap-4 font-semibold text-white hover:opacity-70 ease-in-out duration-700"
         >
-          <FaInstagram /> VISITE NOSSO INSTAGRAM
+          <FaInstagram className="text-lg"/> VISITE NOSSO INSTAGRAM
         </a>
         <a
           href=""
           target="_blank"
           className="flex items-center gap-4 font-semibold text-white hover:opacity-70 ease-in-out duration-700"
         >
-          <FaTwitch /> VISITE NOSSO CANAL DA TWITCH
+          <FaTwitch className="text-lg"/> VISITE NOSSO CANAL DA TWITCH
         </a>
         <a
           href=""
           target="_blank"
-          className="flex items-center gap-4 font-semibold text-white hover:opacity-70 ease-in-out duration-700"
+          className="flex items-center gap-4  font-semibold text-white hover:opacity-70 ease-in-out duration-700"
         >
-          <FaGithub /> NOSSO GITHUB
+          <FaGithub className="text-lg"/> NOSSO GITHUB
         </a>
       </div>
 
       <div className="flex flex-col gap-8 w-[30%]">
         <p className="font-semibold text-white">ASSINE NOSSA NEWSLETTER</p>
-        <form action="" className="flex gap-2 lg:gap-4">
+        <form action="" className="flex flex-col lg:flex-row gap-2 lg:gap-4">
           <>
             <label
               htmlFor="email"
@@ -61,7 +61,7 @@ export default function Footer() {
               <input className="outline-none bg-transparent" type="text" />
             </label>
           </>
-          <button className="flex items-center justify-center h-16 w-16 rounded-md bg-blue-300 text-white text-lg hover:bg-blue-400 ease-in-out duration-700">
+          <button className="flex items-center self-end justify-center h-16 w-16 rounded-md bg-blue-300 text-white text-lg hover:bg-blue-400 ease-in-out duration-700">
             <FaArrowRight />
           </button>
         </form>
