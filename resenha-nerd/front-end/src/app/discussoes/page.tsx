@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Discussoes() {
-  const res = await fetch(`${api}/discussions`, { cache: "force-cache" });
+  const res = await fetch(`${api}/discussions`, { next: {revalidate: 1} });
   const discussionList: DiscussionCardProps[] = await res.json();
 
   return <DiscussionListSection mainDiscussions={discussionList} />;
