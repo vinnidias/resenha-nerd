@@ -1,6 +1,7 @@
 import { api } from "@/api/api";
 
 import NewsList from "@/components/NewsList";
+import { Metadata } from "next";
 
 interface NewsProps {
   id: string;
@@ -13,6 +14,12 @@ interface NewsProps {
   created_at: Date;
   updated_at?: Date;
 }
+
+export const metadata: Metadata = {
+  title: "Notícias",
+  description:
+    "Notícias do universo dos Games, Música, Tecnologia, Séries, Filmes e Animes",
+};
 
 export default async function Noticias() {
   const res = await fetch(`${api}/news`, { cache: "force-cache" });
