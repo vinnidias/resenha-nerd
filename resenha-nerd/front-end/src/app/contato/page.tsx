@@ -1,6 +1,11 @@
-"use client";
-
 import ContactForm from "@/components/ContactForm";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Fale Conosco",
+  description:
+    "Entre em contato conosco para sugestão ou proposta comercial!",
+};
 
 export default function Contato() {
   return (
@@ -13,7 +18,7 @@ export default function Contato() {
       </div>
       <div className="flex flex-col gap-12 min-h-full">
         <div className="flex flex-col xl:max-w-[60%] p-16 gap-12">
-        <h2 className="font-bold text-2xl">💡 Contato da Redação</h2>
+          <h2 className="font-bold text-2xl">💡 Contato da Redação</h2>
           <p className="text-xl">
             Se deseja ser um autor, dar uma sujestão de pauta, matérias e
             notícias, entre em contato com{" "}
@@ -21,9 +26,10 @@ export default function Contato() {
           </p>
         </div>
         <div className="flex flex-col xl:max-w-[60%] p-16 gap-12">
-        <h3 className="font-bold text-2xl">📬 Comercial</h3>
+          <h3 className="font-bold text-2xl">📬 Comercial</h3>
           <p className="text-xl">
-            Se interessou em anunciar a sua marca no site ou tem algum interesse comercial?! Entre em contato com nossa conta comercial,{" "} 
+            Se interessou em anunciar a sua marca no site ou tem algum interesse
+            comercial?! Entre em contato com nossa conta comercial,{" "}
             <strong>comercial.resenhanerd@gmail.com</strong>
           </p>
         </div>
