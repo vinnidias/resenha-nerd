@@ -50,8 +50,7 @@ export default function TopDiscussionCard(props: DiscussionCardProps) {
 
         {comments.length > 0 && (
           <p>
-            {" "}
-            {comments.length} comentário{comments.length > 1 && "s"}
+            💬 {comments.length} comentário{comments.length > 1 && "s"}
           </p>
         )}
       </div>
