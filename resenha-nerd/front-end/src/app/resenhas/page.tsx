@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Resenhas() {
-  const response = await fetch(`${api}/reviews`, { cache: "force-cache" });
+  const response = await fetch(`${api}/reviews`, { next: { revalidate: 1 } });
   const mainReviews: IReviewsProps[] = await response.json();
 
   return <ReviewsListSection mainReviews={mainReviews} />;
