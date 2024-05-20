@@ -86,7 +86,7 @@ export default function DiscussionListSection({
                 />
               ))}
         </section>
-        <div className="flex flex-col min-h-screen lg:w-[30%] gap-8 p-16">
+        <div className="flex flex-col min-h-screen lg:w-[40%] gap-8 p-16">
           <div className="block min-h-[74vh]"></div>
           <AfiliateBlock
             pubTitle="PROMOÇÃO AMAZON"
