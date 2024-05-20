@@ -1,4 +1,5 @@
 import { api } from "@/api/api";
+import AuthorHeader from "@/components/AuthorHeader";
 import CommentForm from "@/components/CommentForm";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -56,6 +57,11 @@ export default async function Discussao({ params }: IParams) {
     hour: "2-digit",
     minute: "2-digit",
   });
+  const author = data.authorId;
+  const authorImage = data.author.image;
+  const authorInsta = data.author.intagram_link;
+  const authorGithub = data.author.github_link;
+  const authorTwitch = data.author.twitch_link;
   const date = formatedDate.format(new Date(data.created_at));
 
   return (
@@ -72,59 +78,18 @@ export default async function Discussao({ params }: IParams) {
         </p>
       </div>
 
-      <div className="flex w-full px-2 self-center justify-between items-center mt-16 lg:mt-0 lg:items-end h-20 lg:px-2 md:px-16 lg:gap-40 border-t border-blue-300">
-        <div className="flex gap-2 w-full items-end">
-          <div className="flex h-16 w-16">
-            <Image
-              src={`data:image/jpeg;base64,${data.author.image}` || "" || ""}
-              alt="foto do autor"
-              width={200}
-              height={200}
-              style={{ objectFit: "cover", borderRadius: "50%" }}
-            />
-          </div>
-          <p className="text-md lg:text-md lg:px-2 2xl:text-lg font-bold">
-            {" "}
-            {data.authorId}
-          </p>
-          <p className="text-md lg:text-lg font-[500]">{date}</p>
-        </div>
-        <div className="flex gap-6 pb-1 lg:pr-8 2xl:pr-40 items-center">
-          {data.author.intagram_link && (
-            <a
-              target="blank"
-              href={data.author.intagram_link}
-              className="text-3xl text-center text-blue-400"
-            >
-              {" "}
-              <FaInstagram />
-            </a>
-          )}
-          {data.author.github_link && (
-            <a
-              target="blank"
-              href={data.author.github_link}
-              className="text-3xl text-center text-blue-400 "
-            >
-              {" "}
-              <FaGithub />
-            </a>
-          )}
-
-          {data.author.twitch_link && (
-            <a
-              target="blank"
-              href={data.author.twitch_link}
-              className="text-3xl text-center text-blue-400 "
-            >
-              {" "}
-              <FaTwitch />
-            </a>
-          )}
-        </div>
-      </div>
+      <AuthorHeader
+        author={author}
+        authorImage={authorImage || ""}
+        date={date}
+        authorInsta={authorInsta}
+        authorGithub={authorGithub}
+        authorTwitch={authorTwitch}
+      />
       <h2 className="text-2xl font-semibold text-start">💬 Comentários</h2>
       <div className="flex flex-col relative gap-20 pb-12 px-4 w-[full] lg:w-[70%] py-8 lg:pl-2 lg:pr-12 2xl:pl-12 lg:border-r lg:border-blue-300">
+        <CommentForm discussionId={id} />
+
         {data.comments.length > 0 &&
           data.comments.map((item, index) => {
             const commentDate = formatedDate.format(new Date(item.created_at));
@@ -146,7 +111,7 @@ export default async function Discussao({ params }: IParams) {
             );
           })}
 
-        <CommentForm discussionId={id} />
+        {data.comments.length > 5 && <CommentForm discussionId={id} />}
       </div>
     </div>
   );

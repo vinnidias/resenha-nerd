@@ -6,6 +6,8 @@ import { FaInstagram, FaGithub, FaTwitch } from "react-icons/fa6";
 import Iframe from "@/components/Iframe";
 import ReviewsList from "@/components/ReviewsList";
 import { api } from "@/api/api";
+import AuthorHeader from "@/components/AuthorHeader";
+import AfiliateBlock from "@/components/AfiliateBlock";
 
 interface IParams {
   params: { id: string };
@@ -65,7 +67,7 @@ export default async function Noticia({ params }: IParams) {
   const date = formatedDate.format(new Date(data.created_at));
 
   return (
-    <div className="flex flex-col min-w-screen min-h-screen">
+    <div className="flex flex-col min-w-screen min-h-screen lg:px-[15%]">
       <div className="flex flex-col justify-start 2xl:gap-8 mt-24 h-screen md:mt-4 gap-2">
         <Image
           src={imagePath || ""}
@@ -74,7 +76,7 @@ export default async function Noticia({ params }: IParams) {
           height={300}
           className="min-w-[50%] self-center 2xl:mt-16 z-0 rounded-md lg:min-w-[45%]"
         />
-        <div className="flex flex-col gap-0 w-full lg:w-[70%] self-center px-2 md:mt-0 md:px-16 md:justify-center">
+        <div className="flex flex-col gap-0 w-full self-center px-2 md:mt-0 md:px-16 ">
           <p className="text-blue-500 font-bold 2xl:text-lg lg:text-md text-center lg:text-start">
             {category}
           </p>
@@ -85,60 +87,17 @@ export default async function Noticia({ params }: IParams) {
             {subtitle}
           </h2>
         </div>
-        <div className="flex w-full px-2 self-center justify-between items-center mt-16 lg:mt-0 lg:items-end h-20 lg:px-2 md:px-16 lg:w-[70%] lg:gap-40 border-t border-blue-300">
-          <div className="flex gap-2 w-full items-end">
-            <div className="flex h-16 w-16 justify-self-end">
-              <Image
-                src={`data:image/jpeg;base64,${authorImage}` || "" || ""}
-                alt="foto do autor"
-                width={200}
-                height={200}
-                style={{ objectFit: "cover", borderRadius: "50%" }}
-              />
-            </div>
-            <p className="text-md lg:text-md lg:px-2 2xl:text-lg font-bold">
-              {" "}
-              {author}
-            </p>
-            <p className="text-md lg:text-lg font-[500]">{date}</p>
-          </div>
-          <div className="flex gap-6 pb-1 lg:pr-8 2xl:pr-40 items-center">
-            {authorInsta && (
-              <a
-                target="blank"
-                href={authorInsta}
-                className="text-3xl text-center text-blue-400"
-              >
-                {" "}
-                <FaInstagram />
-              </a>
-            )}
-            {authorGithub && (
-              <a
-                target="blank"
-                href={authorGithub}
-                className="text-3xl text-center text-blue-400 "
-              >
-                {" "}
-                <FaGithub />
-              </a>
-            )}
-
-            {authorTwitch && (
-              <a
-                target="blank"
-                href={authorTwitch}
-                className="text-3xl text-center text-blue-400 "
-              >
-                {" "}
-                <FaTwitch />
-              </a>
-            )}
-          </div>
-        </div>
+        <AuthorHeader
+          author={author}
+          authorImage={authorImage || ""}
+          date={date}
+          authorInsta={authorInsta}
+          authorGithub={authorGithub}
+          authorTwitch={authorTwitch}
+        />
       </div>
-      <div className="flex flex-col lg:flex-row w-full ">
-        <div className="flex flex-col gap-20 px-4 lg:w-[50%] lg:ml-[15%] py-8 lg:pl-2 lg:pr-4 2xl:pl-12">
+      <div className="flex flex-col lg:flex-row w-ful">
+        <div className="flex flex-col gap-20 px-8 w-full py-8 lg:pl-2 lg:pr-4 2xl:pl-12 border-r border-blue-300">
           <p className="text-lg lg:text-xl tracking-wide leading-9">
             {content}
           </p>
@@ -147,7 +106,23 @@ export default async function Noticia({ params }: IParams) {
             {endText}
           </p>
         </div>
-        <div className="flex lg:w-[30%] pt-[30%] pr-4 items-end lg:mr-[15%] md:border-l border-blue-300">
+        <div className="flex flex-col lg:w-[40%] pl-8 gap-8">
+          <div className="h-[74vh]"></div>
+          <AfiliateBlock
+            pubTitle="PROMOÇÃO AMAZON"
+            link="https://amzn.to/3UbT0RU"
+            image="https://github.com/vinnidias/resenha-nerd/assets/60718041/6abb5e70-1149-4df0-ab5a-f1825661df7e"
+            title='Monitor Gamer Samsung T350 24"'
+            subtitle="Com 33% de desconto no Prime"
+          />
+
+          <AfiliateBlock
+            pubTitle="PROMOÇÃO AMAZON"
+            link="https://amzn.to/3JtJKnc"
+            image="https://github.com/vinnidias/resenha-nerd/assets/60718041/edd5afa5-31a7-4ac3-b0fc-305d07acd7ca"
+            title="Headset sem Fio Pulse 3D Midnight Black - PlayStation 5"
+            subtitle="Com 18% de desconto no Prime"
+          />
           <ReviewsList />
         </div>
       </div>
