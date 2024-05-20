@@ -15,7 +15,7 @@ export default async function ReviewsList() {
   const reviewsRes = await fetch(`${api}/reviews`, { cache: "force-cache" });
   const reviewsList: ReviewsProps[] = await reviewsRes.json();
   return (
-    <div className="flex flex-col w-full py-[3em] pl-8 gap-24">
+    <div className="flex flex-col w-full py-[3em] gap-24">
       <h2 className="text-2xl font-bold">✏️ Resenhas em Destaque</h2>
 
       {reviewsList.map((item, index) => (

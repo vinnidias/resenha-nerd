@@ -7,10 +7,8 @@ export default function Iframe(props: IProps) {
 
   return (
     <iframe
-    className="rounded-lg w-full"
+      className="rounded-lg w-full h-[40vh]"
       src={link}
-      width="853"
-      height="480"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     >
       {" "}
