@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Noticias() {
-  const res = await fetch(`${api}/news`, { next: { revalidate: 1 } });
+  const res = await fetch(`${api}/news`, { cache: "default" });
   const newsList: NewsProps[] = await res.json();
 
   return <NewsList newsList={newsList} />;
