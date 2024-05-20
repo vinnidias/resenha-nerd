@@ -138,7 +138,12 @@ export default function CommentForm({ discussionId }: ComponentProps) {
         )}
       </>
       <>
-        <label htmlFor="subject" className={`flex flex-col min-w-full p-2`}>
+        <label
+          htmlFor="subject"
+          className={`flex flex-col min-w-full p-2  border focus-within:border-blue-300 ${
+            errors.comment && "border-purple-400 focus-within:border-purple-400"
+          } `}
+        >
           <p
             className={`font-semibold ${
               errors.comment ? "text-purple-400" : "text-slate-400"
@@ -149,10 +154,7 @@ export default function CommentForm({ discussionId }: ComponentProps) {
           <textarea
             cols={10}
             rows={10}
-            className={`p-8 outline-none border focus-within:border-blue-300 ${
-              errors.comment &&
-              "border-purple-400 focus-within:border-purple-400"
-            } `}
+            className={`p-8 outline-none bg-transparent`}
             {...register("comment")}
           />
         </label>
@@ -163,7 +165,7 @@ export default function CommentForm({ discussionId }: ComponentProps) {
 
       <button
         type="submit"
-        className="bg-blue-400 text-white font-semibold p-4 w-fit self-end lg:mr-[5%] rounded-md hover:bg-blue-300 ease-in-out duration-700"
+        className="bg-blue-400 text-white font-semibold p-4 w-fit self-end rounded-md hover:bg-blue-300 ease-in-out duration-700"
       >
         {isLoading ? "ENVIANDO..." : "ENVIAR"}
       </button>
